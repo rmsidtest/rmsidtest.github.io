@@ -47,7 +47,6 @@ body {
 #autoplay, .slide_wrap {
 	position:relative;
 	width:100%;
-	min-height:300px;
 	overflow:hidden;
 }
 
@@ -281,6 +280,9 @@ body {
 				tmpHeight = _this.height();
 			}
 		});
+		if( parseInt(tmpHeight) < parseInt(targetEle.width()) - parseInt(100) ) { 
+			tmpHeight = parseInt(targetEle.width()) - parseInt(100);
+		}
 		$(".slide_wrap").height(tmpHeight);
 	});
 	
