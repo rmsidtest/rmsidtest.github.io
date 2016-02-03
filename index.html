@@ -274,16 +274,15 @@ body {
 		});
 		targetEle.css({"display" : "block"});
 		var tmpHeight = 0;
-		targetEle.find("img").each(function(k, v) {
-			var _this = $(this);
-			if( tmpHeight == 0 || tmpHeight > _this.height() ) {
-				tmpHeight = _this.height();
-			}
+		targetEle.find("img").first().load(function(e) {
+			targetEle.find("img").each(function(k, v) {
+				var _this = $(this);
+				if( tmpHeight == 0 || tmpHeight > _this.height() ) {
+					tmpHeight = _this.height();
+				}
+			});
+			$(".slide_wrap").height(tmpHeight);
 		});
-		if( parseInt(tmpHeight) < parseInt(targetEle.width()) - parseInt(100) ) { 
-			tmpHeight = parseInt(targetEle.width()) - parseInt(100);
-		}
-		$(".slide_wrap").height(tmpHeight);
 	});
 	
 	</script>
